@@ -4,7 +4,7 @@
 
 DEBIAN_RELEASE=`cat /etc/*-release 2> /dev/null | grep PRETTY_NAME | awk -F "=" {'print $2'} | awk -F "(" {'print $2'} | awk -F ")" {'print $1'}`
 SOURCES_FILE="/etc/apt/sources.list"
-MIRROR_URL="http://http.debian.net/debian"
+MIRROR_URL="http://httpredir.debian.org/debian" # find the closest mirror
 MIRROR_SECURITY_URL="http://security.debian.org/"
 
 if [ $(id -u) -eq 0 ]; then # root check

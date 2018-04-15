@@ -10,9 +10,11 @@ MIRROR_SECURITY_URL="http://security.debian.org/"
 if [ $(id -u) -eq 0 ]; then # root check
     echo "-> Updating sources.list to add \"contrib\" and \"non-free\""
     echo "-> Backuping original sources.list before modification"
-    if [ -e SOURCES_FILE ] # if sources.list exists, consider a backup has already been made in a proper state
+    # if sources.list.back exists, consider a previous
+    # sane backup has already been made in a proper state
+    if [ -e "${SOURCES_FILE}.back" ]
     then
-        cp -p SOURCES_FILE SOURCES_FILE.back
+        cp -p ${SOURCES_FILE} ${SOURCES_FILE}.back
         echo "Backup done."
     else
         echo "File exists. Leaving previous backup."

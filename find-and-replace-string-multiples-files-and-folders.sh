@@ -5,7 +5,7 @@
 #
 
 DIRECTORY=$1
-OLD_STR=$1
-NEW_STR=$2
+OLD_STR=$2
+NEW_STR=$3
 
 grep -rl $OLD_STR $DIRECTORY | xargs sed -i "s/${OLD_STR}/${NEW_STR}/g"
